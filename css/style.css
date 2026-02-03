@@ -486,6 +486,104 @@ strong { color: var(--color-earth-deep); }
   font-weight: 500;
 }
 
+/* ---------- HERO VIDEO BACKGROUND ---------- */
+.hero--video {
+  min-height: 90vh;
+  min-height: 90dvh;
+  display: flex;
+  align-items: center;
+  padding: var(--space-4xl) 0;
+}
+
+.hero__video-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero__video-bg iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vw;
+  height: 120vh;
+  min-width: 177.78vh; /* 16:9 aspect ratio */
+  min-height: 56.25vw;
+  transform: translate(-50%, -50%);
+  border: 0;
+}
+
+.hero__video-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      to right,
+      rgba(26, 22, 18, 0.92) 0%,
+      rgba(26, 22, 18, 0.8) 40%,
+      rgba(26, 22, 18, 0.65) 100%
+    );
+  pointer-events: none;
+}
+
+.hero--video .hero__content {
+  z-index: 2;
+}
+
+.hero--video::before {
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(26, 22, 18, 0.95) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(26, 22, 18, 0.5) 100%
+  );
+}
+
+.hero__cta {
+  margin-top: var(--space-2xl);
+}
+
+.btn--lg {
+  padding: var(--space-md) var(--space-2xl);
+  font-size: var(--text-lg);
+  min-height: 56px;
+  letter-spacing: 0.03em;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 4px 20px rgba(193, 127, 62, 0.3);
+}
+
+.btn--lg:hover {
+  box-shadow: 0 6px 30px rgba(193, 127, 62, 0.45);
+  transform: translateY(-2px);
+}
+
+/* On mobile, hide video bg for performance */
+@media (max-width: 767px) {
+  .hero--video {
+    min-height: 80vh;
+    min-height: 80dvh;
+  }
+  .hero__video-bg {
+    display: none;
+  }
+  .hero__video-overlay {
+    display: none;
+  }
+  .hero--video::before {
+    background: linear-gradient(
+      135deg,
+      rgba(45, 74, 62, 0.3) 0%,
+      rgba(26, 22, 18, 0.9) 50%,
+      rgba(193, 127, 62, 0.15) 100%
+    );
+  }
+}
+
 /* ---------- SESSION HERO ---------- */
 .session-hero {
   background: var(--color-earth-deep);
