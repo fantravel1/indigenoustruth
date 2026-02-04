@@ -231,7 +231,7 @@ strong { color: var(--color-earth-deep); }
 .site-header {
   position: sticky;
   top: 0;
-  z-index: var(--z-nav);
+  z-index: 1000;
   background: var(--color-earth-deep);
   border-bottom: 2px solid var(--color-ochre);
   transition: box-shadow var(--transition-base);
@@ -286,7 +286,7 @@ strong { color: var(--color-earth-deep); }
   flex-direction: column;
   gap: 5px;
   padding: var(--space-sm);
-  z-index: calc(var(--z-nav) + 1);
+  z-index: 1020;
   min-width: 44px;
   min-height: 44px;
   align-items: center;
@@ -319,11 +319,12 @@ strong { color: var(--color-earth-deep); }
   height: 100vh;
   height: 100dvh;
   background: var(--color-earth-deep);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.4);
   padding: calc(56px + var(--space-xl)) var(--space-xl) var(--space-xl);
   transition: right var(--transition-slow);
   overflow-y: auto;
   overscroll-behavior: contain;
-  z-index: var(--z-nav);
+  z-index: 1010;
 }
 
 .nav-menu.open { right: 0; }
@@ -335,7 +336,7 @@ strong { color: var(--color-earth-deep); }
   opacity: 0;
   visibility: hidden;
   transition: var(--transition-base);
-  z-index: calc(var(--z-nav) - 1);
+  z-index: 1005;
   backdrop-filter: blur(2px);
 }
 
@@ -1644,6 +1645,57 @@ strong { color: var(--color-earth-deep); }
 .about-feature__text {
   font-size: var(--text-sm);
   color: var(--color-earth-mid);
+}
+
+/* About — row layout */
+.about-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-lg);
+  padding: var(--space-xl) 0;
+  border-bottom: 1px solid var(--color-sand-light);
+}
+
+.about-row:last-child {
+  border-bottom: none;
+}
+
+.about-row__icon {
+  width: 52px;
+  height: 52px;
+  background: rgba(193, 127, 62, 0.1);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-ochre);
+}
+
+.about-row__body {
+  flex: 1;
+  min-width: 0;
+}
+
+.about-row__title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-earth-deep);
+  margin-bottom: var(--space-xs);
+}
+
+.about-row__text {
+  font-size: var(--text-base);
+  color: var(--color-earth-mid);
+  line-height: 1.7;
+  max-width: 72ch;
+  margin-bottom: 0;
 }
 
 /* ============================================================
